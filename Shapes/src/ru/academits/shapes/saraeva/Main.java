@@ -3,6 +3,8 @@ package ru.academits.shapes.saraeva;
 import java.util.*;
 import java.util.Collections;
 
+import static java.util.Collections.*;
+
 /**
  * Created by ESaraeva on 27.02.2017.
  */
@@ -21,9 +23,9 @@ public class Main {
         shapes.add(triangle);
         shapes.add(circle);
 
-        Collections.sort(shapes, new AreasComparator());
+        sort(shapes, new AreasComparator());
         System.out.println(shapes.get(shapes.size() - 1));
-        Collections.sort(shapes, new PerimetersComparator());
+        sort(shapes, new PerimetersComparator());
         System.out.println(shapes.get(shapes.size() - 2));
         System.out.println(rectangle.equals(rectangle2));
         System.out.println(circle.hashCode());
