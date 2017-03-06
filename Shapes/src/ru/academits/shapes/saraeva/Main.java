@@ -1,60 +1,32 @@
 package ru.academits.shapes.saraeva;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
+import java.util.Collections;
 
 /**
  * Created by ESaraeva on 27.02.2017.
  */
 public class Main {
     public static void main(String[] args) {
-        Shape.Square square = new Shape.Square(5);
-        Shape.Rectangle rectangle = new Shape.Rectangle(4, 6);
-        Shape.Rectangle rectangle2 = new Shape.Rectangle(8, 7);
-        Shape.Triangle triangle = new Shape.Triangle(0, 0, 0, 3, 4, 0);
-        Shape.Circle circle = new Shape.Circle(10);
-        //double[] areas = {square.getArea(), circle.getArea(), rectangle.getArea(), rectangle2.getArea(), triangle.getArea()};
-        //System.out.println(getMaxSquare(areas));
-        ArrayList<Double> areas = new ArrayList<>();
-        areas.add(square.getArea());
-        areas.add(rectangle.getArea());
-        areas.add(rectangle2.getArea());
-        areas.add(triangle.getArea());
-        areas.add(circle.getArea());
-        ArrayList<Double> perimeters = new ArrayList<>();
-        areas.add(square.getPerimeter());
-        areas.add(rectangle.getPerimeter());
-        areas.add(rectangle2.getPerimeter());
-        areas.add(triangle.getPerimeter());
-        areas.add(circle.getPerimeter());
+        Square square = new Square(5);
+        Rectangle rectangle = new Rectangle(4, 6);
+        Rectangle rectangle2 = new Rectangle(8, 7);
+        Triangle triangle = new Triangle(0, 0, 0, 15, 23, 0);
+        Circle circle = new Circle(200);
+
+        ArrayList<Shape> shapes = new ArrayList<>();
+        shapes.add(square);
+        shapes.add(rectangle);
+        shapes.add(rectangle2);
+        shapes.add(triangle);
+        shapes.add(circle);
+
+        Collections.sort(shapes, new AreasComparator());
+        System.out.println(shapes.get(shapes.size() - 1));
+        Collections.sort(shapes, new PerimetersComparator());
+        System.out.println(shapes.get(shapes.size() - 2));
+        System.out.println(rectangle.equals(rectangle2));
+        System.out.println(circle.hashCode());
     }
+}
 
-    public static double getMaxSquare(ArrayList<Double> areas) {
-        for (int i = 0; i < areas.size() - 1; ++i) {
-            //  double temp = areas.get(i + 1);
-           // ArrayList<Double> temp = new ArrayList<>(Arrays.asList(areas.get(i + 1)));
-            ArrayList<Double> temp = new ArrayList<>(Arrays.asList(7));
-          //  temp = areas.get(i + 1);
-            //temp.add(areas.get(i + 1));
-            if (temp > areas[i]) {
-                continue;
-            }
-            int j = i + 1;
-            while (j > 0 && temp <= areas[j - 1]) {
-                areas[j] = areas[j - 1];
-                --j;
-            }
-            areas[j] = temp;
-        }
-
-   /* public static double getMaxSquare(double[] areas) {
-        double temp = 0;
-        for (int i = 0; i < areas.length; ++i) {
-            if (areas[i] > temp) {
-                temp = areas[i];
-            }
-        }
-        return temp;
-    }*/
-
-    }
