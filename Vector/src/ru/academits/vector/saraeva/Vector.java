@@ -32,24 +32,22 @@ public class Vector {
         return "{" + vector + "}";
     }
 
-    public double[] totUpVectors(double[] vector2) {
+    public void totUpVectors(double... vector2) {
 
         int resultDimension = Math.max(vector.length, vector2.length);
         double[] vectorResult = new double[resultDimension];
         for (int i = 0; i < Math.max(vector.length, vector2.length); ++i) {
             vectorResult[i] = vector[i] + vector2[i];
         }
-        return vectorResult;
     }
 
     public int getSize() {
         return vector.length;
     }
 
-    public double[] multiplyByScalar(double scalar, double[] vector2) {
-        for (int i = 0; i < vector2.length; ++i) {
-            vector2[i] = scalar * vector2[i];
+    public void multiplyByScalar(double scalar) {
+        for (int i = 0; i < vector.length; ++i) {
+            vector[i] = scalar * vector[i];
         }
-        return vector2;
     }
 }
