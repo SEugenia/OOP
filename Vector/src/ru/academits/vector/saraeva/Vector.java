@@ -35,11 +35,11 @@ public class Vector {
         }
         builder.delete(builder.length() - 2, builder.length());
         builder.append('}');
-        return builder + "";
+        return builder.toString();
     }
 
 
-    public void totUpVectors(Vector vector2) {
+    public void addUpVectors(Vector vector2) {
         int resultDimension = Math.max(vector.length, vector2.getSize());
         double[] vectorResult = new double[resultDimension];
         for (int i = 0; i < Math.max(vector.length, vector2.getSize()); ++i) {

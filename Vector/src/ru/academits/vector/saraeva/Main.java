@@ -20,7 +20,7 @@ public class Main {
         System.out.println(vector3);
         System.out.println();
         System.out.println(vector3.getSize());*/
-        vector.totUpVectors(vector3);
+        vector.addUpVectors(vector3);
         System.out.println(vector);
 
     }
