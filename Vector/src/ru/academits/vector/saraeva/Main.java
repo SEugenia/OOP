@@ -22,7 +22,7 @@ public class Main {
         System.out.println(vector3.getSize());*/
         vector3.addUpVectors(vector);
         //vector3.rotateVector();
-        System.out.println(vector);
+        System.out.println(vector3);
 
     }
 }

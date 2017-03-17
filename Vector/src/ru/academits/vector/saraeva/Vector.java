@@ -40,16 +40,18 @@ public class Vector {
 
 
     public void addUpVectors(Vector vector2) {
-
-        if (vector2.getSize() < vector.length) {
-
-            for (int i = vector2.getSize(); i < vector.length; ++i) {
-                vector2.vector[i] = 0;
+        if (vector.length < vector2.getSize()) {
+            double[] arr = new double[vector2.getSize()];
+            for (int i = 0; i < vector.length; ++i) {
+                vector[i] = vector[i];
+            }
+            for (int i = vector.length; i < vector2.getSize(); ++i) {
+                vector[i] = 0;
             }
         }
 
         for (int i = 0; i < vector.length; ++i) {
-            vector2.vector[i] = vector[i] + vector2.vector[i];
+            vector[i] = vector[i] + vector2.vector[i];
         }
     }
 
