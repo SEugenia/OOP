@@ -40,13 +40,18 @@ public class Vector {
 
 
     public void addUpVectors(Vector vector2) {
-        int resultDimension = Math.max(vector.length, vector2.getSize());
-        double[] vectorResult = new double[resultDimension];
-        for (int i = 0; i < Math.max(vector.length, vector2.getSize()); ++i) {
-            vector[i] = vector[i] + vector2.vector[i];
+
+        if (vector2.getSize() < vector.length) {
+
+            for (int i = vector2.getSize(); i < vector.length; ++i) {
+                vector2.vector[i] = 0;
+            }
+        }
+
+        for (int i = 0; i < vector.length; ++i) {
+            vector2.vector[i] = vector[i] + vector2.vector[i];
         }
     }
-
 
     public void multiplyByScalar(double scalar) {
         for (int i = 0; i < vector.length; ++i) {
@@ -55,9 +60,7 @@ public class Vector {
     }
 
     public void rotateVector() {
-        for (int i = 0; i < vector.length; ++i) {
-            vector[i] = -1 * vector[i];
-        }
+        multiplyByScalar(-1);
     }
 
     public int getSize() {
